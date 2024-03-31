@@ -1,30 +1,19 @@
 @import-normalize; /* bring in normalize.css styles */
 
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
-  padding: 100px;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  background: white;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-ul {
-  list-style: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
+  background-color: #e7ecf2;
+  color: #122236;
+  min-height: 100vh;
+  font-style: normal;
 }
 
 h1,
@@ -34,7 +23,29 @@ h4,
 h5,
 h6,
 p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
   margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
@@ -43,14 +54,7 @@ img {
   height: auto;
 }
 
-a {
-  text-decoration: none;
-  outline: none;
-}
-
-button {
-  border: none;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

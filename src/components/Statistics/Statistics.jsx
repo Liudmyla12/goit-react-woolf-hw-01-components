@@ -1,30 +1,22 @@
-import { getRandomHexColor } from './getRandomHexColor';
-import {
-  StatisticsSection,
-  Title,
-  StatList,
-  StatItem,
-  Label,
-  Percentage,
-} from './Statistics.styled';
+import { getRandomColor } from 'helpers/get-random-color';
+import css from './Statistics.module.css';
 
-const Statistics = ({ stats, title }) => {
-  return (
-    <StatisticsSection>
-      {title && <Title>{title}</Title>}
-      <StatList>
-        {stats.map(stat => (
-          <StatItem
-            key={stat.id}
-            style={{ backgroundColor: getRandomHexColor() }}
-          >
-            <Label>{stat.label}</Label>
-            <Percentage>{stat.percentage}%</Percentage>
-          </StatItem>
-        ))}
-      </StatList>
-    </StatisticsSection>
-  );
-};
+const Statistics = ({ title, stats }) => (
+  <section className={css.statistics}>
+    {title && <h2 className={css.title}>{title}</h2>}
+    <ul className={css.stat_list}>
+      {stats.map(({ id, label, percentage }) => (
+        <li
+          key={id}
+          className={css.stat_item}
+          style={{ backgroundColor: getRandomColor() }}
+        >
+          <span className={css.label}>{label}</span>
+          <span className={css.percentage}>{percentage}%</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+);
 
-export default Statistics;
+export { Statistics };

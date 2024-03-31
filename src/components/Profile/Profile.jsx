@@ -1,42 +1,37 @@
-import {
-  ProfileWrap,
-  Description,
-  Avatar,
-  Name,
-  Tag,
-  Location,
-  Stats,
-  ListItem,
-  Label,
-  Quantity,
-} from './Profile.styled';
+import css from './Profile.module.css';
 
-const Profile = ({ username, tag, location, avatar, stats }) => {
-  return (
-    <ProfileWrap>
-      <Description>
-        <Avatar src={avatar} alt={username} />
-        <Name>{username}</Name>
-        <Tag>@{tag}</Tag>
-        <Location>{location}</Location>
-      </Description>
+const Profile = ({
+  username,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => (
+  <div className={css.profile}>
+    <div className={css.description}>
+      <img src={avatar} alt="User avatar" className={css.avatar} />
+      <p className={css.name}>{username}</p>
+      <p className={css.tag}>@{tag}</p>
+      <p className={css.location}>{location}</p>
+    </div>
 
-      <Stats>
-        <ListItem>
-          <Label>Followers</Label>
-          <Quantity>{stats.followers}</Quantity>
-        </ListItem>
-        <ListItem>
-          <Label>Views</Label>
-          <Quantity>{stats.views}</Quantity>
-        </ListItem>
-        <ListItem>
-          <Label>Likes</Label>
-          <Quantity>{stats.likes}</Quantity>
-        </ListItem>
-      </Stats>
-    </ProfileWrap>
-  );
-};
+    <ul className={css.stats}>
+      <li className={css.stat_item}>
+        <span className={css.label}>Followers</span>
+        <span className={css.quantity}>
+          {followers.toLocaleString('en-US')}
+        </span>
+      </li>
+      <li className={css.stat_item}>
+        <span className={css.label}>Views</span>
+        <span className={css.quantity}>{views.toLocaleString('en-US')}</span>
+      </li>
+      <li className={css.stat_item}>
+        <span className={css.label}>Likes</span>
+        <span className={css.quantity}>{likes.toLocaleString('en-US')}</span>
+      </li>
+    </ul>
+  </div>
+);
 
-export default Profile;
+export { Profile };
